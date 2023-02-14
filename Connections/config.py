@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from configparser import ConfigParser
-def config(filename='/Users/prakashyadava/Desktop/Task1_V2/Connections/database.ini', section='postgresql'):
+def config(filename='Enter database.ini file path', section='postgresql'):
     # create a parser
     parser = ConfigParser()
     # read config file
