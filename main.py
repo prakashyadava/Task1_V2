@@ -1,6 +1,6 @@
 import csv
 from time import perf_counter
-from allConn import *
+from Connections.allConn import DBConnection
 file_name = 'Network_dataset_1.csv' # enter your csv file path
 table_name = 'new_table3'
 
