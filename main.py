@@ -14,13 +14,11 @@ def read_csv():
     return csv_data,header
 def field_conversion(): # Making fields for table
     field = "("
-    with open(file_name) as csv_file:
-        csv_reader = csv.DictReader(csv_file)
-        header = csv_reader.fieldnames
-        for i in range(len(header)-1):
-            field = field + f'{header[i]},'
-        field = field + f'{header[-1]})'
-        return field
+    csv_data,header = read_csv()
+    for i in range(len(header)-1):
+        field = field + f'{header[i]},'
+    field = field + f'{header[-1]})'
+    return field
 def create_table(db):# creating table in database
     temp = ""
     flag = db.connect_db()
