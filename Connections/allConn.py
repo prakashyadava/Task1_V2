@@ -31,14 +31,7 @@ class DBConnection:
         except psycopg2.Error as e:
             print(f'{e}')
             return False
-    def display_records(self,name):
-        try:
-            self.cur.execute(f"select * from {name} ;")
-            data  =self.cur.fetchall()
-            return data
-        except Exception as e:
-            print(e)
-
+        
     #inserting data through execute
     def insert_data(self,name,field,data):
         try:
