@@ -25,20 +25,18 @@ def create_table(db):# creating table in database
     temp = ""
     flag = db.connect_db()
     if flag:
-        with open(file_name) as csv_file:
-            csv_reader = csv.DictReader(csv_file)
-            header = csv_reader.fieldnames
-            for i in range(0,len(header)-1):
-                temp = temp + f'{header[i]} varchar(100000),'
-            temp = temp + f'{header[-1]} varchar(100000)'
-            check = db.create_table(table_name,temp)
-            if check:
-                print(f'{table_name} table is created')
-                db.close_db()
-                return True
-            else:
-                print(f'Unable to create {table_name} table')
-                return False   
+        csv_data,header = read_csv()
+        for i in range(0,len(header)-1):
+            temp = temp + f'{header[i]} varchar(100000),'
+        temp = temp + f'{header[-1]} varchar(100000)'
+        check = db.create_table(table_name,temp)
+        if check:
+            print(f'{table_name} table is created')
+            db.close_db()
+            return True
+        else:
+            print(f'Unable to create {table_name} table')
+            return False   
     else:
         print("Unable to connect the database")
         return False
