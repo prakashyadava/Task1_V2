@@ -2,9 +2,6 @@ import csv
 from time import perf_counter
 from Connections.allConn import DBConnection
 
-file_name = '/Users/prakashyadava/Desktop/Task1_V2/Data/Network_dataset_1.csv' # enter your csv file path
-table_name = 'new_table3'
-
 class str2(str): # converting "Prakash" to 'Prakash'
      def __repr__(self):
          return ''.join(("'", super().__repr__()[1:-1], "'"))
@@ -165,6 +162,8 @@ def insert_data_through_mogrify(db): # inserting data through mogrify, required 
 
 if __name__ =='__main__':
     db = DBConnection()
+    file_name = '/Users/prakashyadava/Desktop/Task1_V2/Data/Network_dataset_1.csv' # enter your csv file path
+    table_name = 'new_table3'   
     try:   
         create_table(db)
     except Exception as e:
